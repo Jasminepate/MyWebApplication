@@ -1,0 +1,208 @@
+body { 	
+
+}
+
+h2, h3, h4, h5 {
+	font-family: "Lucida Console", "Verdana";
+	color: #000000;
+}
+
+p {
+	font-size: 1em;
+}
+
+h1 {
+   font-size:500%;
+   margin-bottom:0%;
+}
+
+/*Header*/
+.header { 
+   position: relative; 
+   width: 100%; /* for IE 6 */
+}
+
+.bg_text{ 
+   position: absolute; 
+   top: 50px;  
+   width: 100%;
+}
+
+.center{
+   text-align:center;
+}
+
+.bold{
+   font-weight: bold;
+}
+
+img .bg_text{
+   position: absolute; 
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+/*Plane Flying*/
+
+.fly{
+	-webkit-animation: plane 7s infinite;
+	animation: plane 7s infinite; 
+	position: absolute;
+}
+
+@-webkit-keyframes plane{
+
+0%{
+        right: 0%;
+	top: 100%;
+}
+
+50% {
+        right: 50%;
+	top: 60%;
+}
+
+75%{
+        right: 70%;
+	top: 60%;
+}
+
+100%{
+        right: 100%;
+	top: 60%;
+}
+}
+
+@keyframes plane{
+
+0% {
+	right: 0%;
+	top: 100%;
+}
+
+50% {
+	right: 50%;
+	top: 60%;
+}
+
+75% {
+	right: 70%;
+	top: 60%;
+}
+
+100% {
+	right: 100%;
+	top: 60%;
+}
+}
+
+/*Style*/
+
+.block_line{
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	margin: 0%;	
+}
+
+/*Side-Slide-Containers*/
+
+.tab{
+	width: 250px;
+	height: 100px;
+	background-color: #e0e0d1;
+	margin-top: 20px;
+	position:absolute;
+}
+.tab_button{
+	background-color: #ffffb3;
+	text-align: left;
+	display: block;
+	transition: 0.3s;
+	width: 300px;
+	height: 100px;
+	font-size: 20px;
+}
+
+.tab_button button:hover{
+	background-color: #ffff99;
+}
+
+.tab_button button.active{
+	background-color: #ffff66;
+}
+
+.tab_content{
+	padding: 20px;
+	float: left;
+	margin-left:300px;
+	margin-top:-400px;
+	width: 690px;
+	height: 360px;
+	background-color: #ffffb3;
+	display:none;
+}
+
+
+/*Register Form*/
+.register {
+	margin-top:-70px;
+	margin-left:-700px; 
+	width: 250px;
+	height: 500px;
+	display: none;
+}
+
+/*User Login*/
+.login{
+	height:150px; 
+	width:300px;
+	margin-left:815px;
+	position:relative;
+	top:-400px;
+	z-index:2;
+}
+
+.login_bg{
+	position:relative;
+	z-index:1;
+	margin-left:620px;
+}
+
+.login_bg img{
+	opacity:0.9; 
+	filter:alpha(opacity=60);
+}	
+
+#smile {
+	position: absolute;
+	margin-top:-517px;
+	margin-left:712.5px;
+	opacity:0.3; 
+	z-index:3;
+        filter:alpha(opacity=90);
+
+}
+
+
+
+

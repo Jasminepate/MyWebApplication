@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    {% block head %}
+	<meta charset="UTF-8">
+	<!-- Style -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+	<!-- Icons -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- JQuery -->
+	<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    {% endblock %} 
+  </head>
+
+  <body>
+    {% block body %}
+		<div class="header">
+			<ul>
+				<li><a href="{{ url_for('main.index') }}">Home</a></li>
+				<li><a href=http://github.com/jasminepate>GitHub</a></li> 
+							
+				{% if "{{ request.url }}" != ".login" %}					
+					{% if current_user.is_authenticated %}
+					<li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
+					{% else %}
+					<li><a href="{{ url_for('main.login') }}">Log in</a></li>
+					{% endif %}
+				{% endif %}
+			</ul>
+				<img src="{{ url_for('static', filename='images/clouds.png') }}" width=1280px height=630px />
+                </div>
+
+
+    {% endblock %}
+  </body>
+</html>
+

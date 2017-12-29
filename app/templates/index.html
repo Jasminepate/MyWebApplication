@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+
+
+{% endblock %}
+
+
+{% block body %}
+{{ super() }}
+
+	<div class="bg_text">
+{% if current_user.is_authenticated %}
+ <div style="margin-top:-35px; margin-left:1000px;">
+                <img src="{{ url_for('static', filename='images/yellow_user_icon.png') }}" width=35px height=35px/>
+        </div>
+        <div style="color:white; margin-top:-52px; margin-left:1050px;">
+                <p> Current User: {{ current_user.first_name }}</p>
+        </div>
+{% endif %}
+		<div class="center">
+			<h1>Welcome</h1>
+			<h4>I'm Jasmine Pate</h4>
+
+			<div class="block_line" style="margin-left:140px;">
+				<i class="material-icons" style="font-size:48px;color:red">computer</i>
+				<h4>Linux Professional</h4>
+			</div>
+			<div class="block_line" style="margin-left:50px;">
+				<i class="material-icons" style="font-size:48px;color:red">account_circle</i>
+				<h4>Application Developer </h4>
+			</div>
+			<div class="block_line" style="margin-left:50px;">
+				<i class="material-icons" style="font-size:48px;color:red">cloud_queue</i>
+				<h4>Cloud Engineer</h4>
+			</div>
+		{% if current_user.is_authenticated %}
+			<a href="{{ url_for('auth.access') }}"><img src="{{ url_for('static', filename='images/black_arrow.png') }}" style="float:right; margin-right:50px; width:100px;"/></a>
+		{% else %}
+			<a href="{{ url_for('.login') }}"><img src="{{ url_for('static', filename='images/black_arrow.png') }}" style="float:right; margin-right:50px; width:100px;"/></a>
+		{% endif %}
+
+		</div>
+		<div class="fly">
+			<img src="{{ url_for('static', filename='images/airplane.gif') }}" style="width:200px;"/>
+		</div>
+		<div class="center" style="margin-top:100px; text-weight=bold;">
+			<h5>IF AT FIRST YOU DONT SUCCEED, CALL IT VERSION 1.0 </br> - Unknown</h5>
+		</div>
+	</div>
+{% endblock %}
+

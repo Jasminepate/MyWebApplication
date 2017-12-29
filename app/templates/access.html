@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+	<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+{{ super() }}
+<div class="bg_text">
+	<div style="margin-top:-35px; margin-left:1000px;">
+		<img src="{{ url_for('static', filename='images/yellow_user_icon.png') }}" width=35px height=35px />
+	</div>
+	<div style="color:white; margin-top:-52px; margin-left:1050px;">
+		<p> Current User: {{ current_user.first_name }}</p>
+	</div>
+	 <img src="{{ url_for('static', filename='images/default-user.png') }}" width=200px height=200px style=" margin-left:60px; margin-top:140px; position:absolute; border:3px solid;"/>
+	<h5 style="margin-top:580px;margin-left:1030px; position:fixed;">Last Visit: {{ current_user.last_login }}</h5>
+
+    <div class="center">
+	<h1>User Account</h2>
+	<a href="#edit"><img src="{{ url_for('static', filename='images/scroll_down.png') }}" width=60px height=60px style="margin-top:400px;" /></a>
+    </div>
+</div>
+
+<div style="margin-top:-250px;">
+  <img src="{{ url_for('static', filename='images/light-grey-background.jpg') }}" width=1280px />
+  <div id="edit" class="bg_text" style="top:700px;">
+	
+	<div class="tab">
+	       	<button class="tab_button" id="info_button">Account Information</button>
+        	<button class="tab_button" id="edit_button">Edit Account</button>
+	       	<button class="tab_button" id="password_button">Change Password</button>
+		<button class="tab_button" id="delete_button">Delete Account</button>
+
+	 <div class="tab_content" id="info">
+		
+		<h4>Name: {{ current_user.first_name|capitalize }} {{ current_user.last_name|capitalize }}</h4>
+		<p>Email: {{ current_user.email }}</p>
+		<p> Date of Birth: {{ current_user.dob }}</p>	
+		<p>Phone: {{ current_user.phone }} </p>
+		<p> Zipcode: {{ current_user.zipcode }}</p>
+	 </div>
+
+	<div class="tab_content" id="edit_acc">
+		    <form  action="" method="post"/>
+                        <input id="update" type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+			   <h4> Fill in desired fills to update information</h4>
+                              <div>  
+                                {{ form.first.label }} {{ form.first }}
+                                {{ form.last.label }} {{ form.last }} </br>
+                                {{ form.zipcode.label }} {{ form.zipcode }} </br>
+                                {{ form.dob.label }} {{ form.dob }} </br>
+                                {{ form.phone.label }} {{ form.phone }} </br>
+			<button type="button" onclick="update_content();" style="margin-top:20px;"name="update_password">Update</button>
+				</div>
+			</form>
+		
+		 <form action="" method="post">
+			<h4>Upload User Photo</h4>
+			  <input type="file" name="pic" accept="image/*">
+			  <button type="submit">Upload</button>
+		</form> 
+	</div>
+
+	<div class="tab_content" id="change_pass">
+	     <form  action="" method="post"/>
+                    <input id="update" type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                         <h4>Must enter current password to preceed with password change.</h4>
+                          <div style="margin-top:40px;">
+                                {{ form.current_password.label }} {{ form.current_password(placeholder="Password") }} </br>
+                                {{ form.password.label }} {{ form.password(placeholder="Password") }}
+                                {{ form.password2(placeholder="Re-enter Password") }}
+                           <button type="button" onclick="update_content();" style="margin-top:20px;"name="update_password">Update</button>
+                           </div>  
+             </form>
+	</div>
+
+	<div class="tab_content" id="delete">
+		<h4>Delete user account?</h4>
+	</div>
+    </div>
+   </div>
+</div>
+
+{% endblock %}
